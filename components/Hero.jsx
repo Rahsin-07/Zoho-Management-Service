@@ -59,26 +59,7 @@ export default function Hero() {
       <div aria-hidden style={{ position: 'absolute', width: 420, height: 420, top: '30%', right: '20%', background: 'radial-gradient(circle at center, rgba(220,38,38,0.12), transparent 60%)', animation: 'blob-drift 22s ease-in-out infinite', pointerEvents: 'none' }} />
       <div aria-hidden style={{ position: 'absolute', inset: 0, opacity: 0.45 }} className="dot-grid" />
 
-      {/* Floating module chips */}
-      <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
-        {moduleChips.map((c, i) => (
-          <div key={c.label}
-            className="d-none d-md-inline-flex"
-            style={{
-              position: 'absolute', left: c.x, top: c.y,
-              background: 'rgba(255,255,255,0.94)', backdropFilter: 'blur(8px)',
-              border: '1px solid #e8e3dc', borderRadius: 999, padding: '7px 14px',
-              fontSize: '0.78rem', fontFamily: 'Inter,sans-serif', fontWeight: 600,
-              color: '#334155', boxShadow: '0 10px 28px rgba(11,18,32,0.08)',
-              alignItems: 'center', gap: 8,
-              animation: `float-y ${5 + (i % 3) * 1.2}s ease-in-out ${c.delay}s infinite`,
-              whiteSpace: 'nowrap',
-            }}>
-            <i className={`bi ${c.icon}`} style={{ color: c.color, fontSize: '0.95rem' }} />
-            {c.label}
-          </div>
-        ))}
-      </div>
+     
 
       <div className="container position-relative text-center" style={{ zIndex: 2 }}>
         {/* Badge */}
