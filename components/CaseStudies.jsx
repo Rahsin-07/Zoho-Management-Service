@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-// Section 07 — Real Results
+// Section 07, Real Results
 const cases = [
   {
     industry: 'Construction',
@@ -40,7 +40,7 @@ const cases = [
     company: 'CoWorkFlowX',
     headline: 'A new multi-tenant SaaS, architected and shipped in six weeks',
     summary:
-      'Drafted the full PRD, designed an 18-table Mongoose schema, set up a permission matrix for four roles, integrated Razorpay, and produced an AI build prompt strategy — ready for the dev team to ship sprint by sprint.',
+      'Drafted the full PRD, designed an 18-table Mongoose schema, set up a permission matrix for four roles, integrated Razorpay, and produced an AI build prompt strategy, ready for the dev team to ship sprint by sprint.',
     metrics: [
       { label: 'PRD sections',          value: '14' },
       { label: 'Schemas designed',      value: '18' },
@@ -69,14 +69,11 @@ export default function CaseStudies() {
           <div className="col-lg-8">
             <div className="section-label">Real results</div>
             <h2 className="section-title">
-              Businesses that called us — <span className="grad-blue-red">and what happened next</span>
+              We don't launch everything <span className="grad-blue-red">We launch what matters.</span>
             </h2>
-            <p className="section-sub">
-              Three different stacks. Three different problems. The pattern is always the same: audit, scope, ship, document, run.
-            </p>
           </div>
           <div className="col-lg-4 text-lg-end mt-3 mt-lg-0 d-none d-lg-block">
-            <a href="#consultation" className="link-reveal">
+            <a href="https://arul-zoflowx.zohobookings.in/#/Zoho_Consultation" target="_blank" rel="noreferrer" className="link-reveal">
               Read all case studies <i className="bi bi-arrow-right" />
             </a>
           </div>
@@ -139,7 +136,7 @@ export default function CaseStudies() {
                       fontFamily: 'Inter,sans-serif',
                     }}>{c.industry}</div>
                     <div style={{
-                      fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800,
+                      fontFamily: 'Inter,sans-serif', fontWeight: 800,
                       fontSize: '0.92rem', color: '#0b1220', marginTop: 1,
                     }}>{c.company}</div>
                   </div>
@@ -147,7 +144,7 @@ export default function CaseStudies() {
 
                 <h3 style={{
                   fontSize: '1.14rem', fontWeight: 800, color: '#0b1220',
-                  fontFamily: 'Plus Jakarta Sans,sans-serif', lineHeight: 1.32,
+                  fontFamily: 'Inter,sans-serif', lineHeight: 1.32,
                   marginBottom: 12, letterSpacing: '-0.012em',
                 }}>{c.headline}</h3>
 
@@ -172,7 +169,7 @@ export default function CaseStudies() {
                         fontFamily: 'Inter,sans-serif',
                       }}>{m.label}</div>
                       <div style={{
-                        fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800,
+                        fontFamily: 'Inter,sans-serif', fontWeight: 800,
                         fontSize: '0.92rem', color: c.color,
                       }}>{m.value}</div>
                     </div>
