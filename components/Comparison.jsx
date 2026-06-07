@@ -1,16 +1,16 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-// Section 06 — The Honest Comparison
+// Section 06, The Honest Comparison
 const rows = [
-  { criterion: 'Monthly cost',         inhouse: '$6,000+ per month, fixed',                       us: 'Pay for hours used. Often 60–70% less.' },
+  { criterion: 'Monthly cost',         inhouse: '$6,000+ per month, fixed',                       us: 'Pay for hours used. Often 60-70% less.' },
   { criterion: 'Range of skills',      inhouse: 'One person, one specialty',                       us: 'Consultant + developer + PM + support' },
   { criterion: 'When they\'re sick or quit', inhouse: 'Work stops. Knowledge walks out the door.',  us: 'Backup team. Documented work. No stoppage.' },
-  { criterion: 'Speed to start',       inhouse: '6–12 weeks of hiring + onboarding',               us: 'Kick off within 7 days of signing' },
+  { criterion: 'Speed to start',       inhouse: '6-12 weeks of hiring + onboarding',               us: 'Kick off within 7 days of signing' },
   { criterion: 'Industry experience',  inhouse: 'Whatever they happened to do before',             us: '200+ implementations across industries' },
   { criterion: 'Documentation',        inhouse: 'Usually missing or outdated',                     us: 'Plain-English docs for every change' },
-  { criterion: 'Scaling up or down',   inhouse: 'Hire/fire cycle — painful',                       us: 'Add or reduce hours month to month' },
-  { criterion: 'Accountability',       inhouse: 'One person responsible (and already busy)',       us: 'Single account manager. Clear SLA.' },
+  { criterion: 'Scaling up or down',   inhouse: 'Hire/fire cycle, painful',                       us: 'Add or reduce hours month to month' },
+  { criterion: 'Accountability',       inhouse: "One person responsible (and they're already busy)",       us: 'Single account manager. Clear SLA.' },
 ]
 
 export default function Comparison() {
@@ -38,9 +38,6 @@ export default function Comparison() {
           <h2 className="section-title">
             Hiring in-house <span style={{ color: '#94a3b8', fontWeight: 700 }}>vs.</span> <span className="grad-blue-red">working with ZoFlowX</span>
           </h2>
-          <p className="section-sub mx-auto">
-            We get it — hiring an internal Zoho admin sounds simpler. Here&apos;s what each path actually looks like, by the numbers.
-          </p>
         </div>
 
         {/* Desktop table */}
@@ -62,33 +59,24 @@ export default function Comparison() {
               background: '#f6f1ea', borderBottom: '1px solid #e8e3dc',
             }}>
               <div style={{
-                fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800,
+                fontFamily: 'Inter,sans-serif', fontWeight: 800,
                 fontSize: '0.78rem', letterSpacing: 1.8, textTransform: 'uppercase',
                 color: '#64748b',
               }}>What you get</div>
               <div style={{
-                fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800,
+                fontFamily: 'Inter,sans-serif', fontWeight: 800,
                 fontSize: '0.94rem', color: '#0b1220',
                 display: 'inline-flex', alignItems: 'center', gap: 10,
               }}>
-                <span style={{
-                  width: 32, height: 32, borderRadius: 8, background: '#fee2e2',
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#dc2626',
-                }}><i className="bi bi-person" /></span>
+               
                 In-house Zoho hire / freelancer
               </div>
               <div style={{
-                fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800,
+                fontFamily: 'Inter,sans-serif', fontWeight: 800,
                 fontSize: '0.94rem', color: '#0b1220',
                 display: 'inline-flex', alignItems: 'center', gap: 10,
               }}>
-                <span style={{
-                  width: 32, height: 32, borderRadius: 8,
-                  background: 'var(--grad-tri)', color: '#fff',
-                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '0.85rem', fontWeight: 800,
-                }}>Z</span>
+               
                 ZoFlowX Managed Services
               </div>
             </div>
@@ -106,7 +94,7 @@ export default function Comparison() {
                 onMouseLeave={e => e.currentTarget.style.background = '#fff'}
               >
                 <div style={{
-                  fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 700,
+                  fontFamily: 'Inter,sans-serif', fontWeight: 700,
                   fontSize: '0.94rem', color: '#0b1220',
                 }}>{row.criterion}</div>
                 <div style={{
@@ -130,7 +118,7 @@ export default function Comparison() {
           </div>
         </div>
 
-        {/* Mobile / tablet — stacked cards per row */}
+        {/* Mobile / tablet, stacked cards per row */}
         <div className="d-lg-none fade-up">
           {rows.map((row, i) => (
             <div key={row.criterion} style={{
@@ -139,7 +127,7 @@ export default function Comparison() {
               boxShadow: '0 6px 18px rgba(11,18,32,0.04)',
             }}>
               <div style={{
-                fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800,
+                fontFamily: 'Inter,sans-serif', fontWeight: 800,
                 fontSize: '0.94rem', color: '#0b1220', marginBottom: 14,
               }}>{row.criterion}</div>
 
@@ -169,9 +157,11 @@ export default function Comparison() {
           }}>
             Stop paying for a Zoho team that&apos;s only busy half the time. Get the same skills on demand with ZoFlowX.
           </p>
-          <a href="#consultation" className="btn-gradient ahover">
-            Get a Custom Quote <i className="bi bi-arrow-right" />
-          </a>
+          <a href="https://arul-zoflowx.zohobookings.in/#/Zoho_Consultation" target="_blank" rel="noreferrer"
+  className="btn-gradient ahover"
+  style={{ background: 'linear-gradient(135deg, #DF3A3C 0%, #b71f21 100%)' }}>
+  Get a Custom Quote <i className="bi bi-arrow-right" />
+</a>
         </div>
       </div>
     </section>
