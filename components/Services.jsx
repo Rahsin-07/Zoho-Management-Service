@@ -1,14 +1,14 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-// Section 03 — What We Do (8 services from brief)
+// Section 03, What We Do (8 services from brief)
 const PALETTE = ['#2563eb', '#dc2626', '#f59e0b']
 
 const services = [
   {
     num: '01', tag: 'Strategy', icon: 'bi-compass',
     title: 'Zoho Consulting & Strategy',
-    desc: 'A senior consultant designs your business processes in Zoho before you write a single line of code. You receive a clear plan — not guesswork.',
+    desc: 'A senior consultant designs your business processes in Zoho before you write a single line of code. You receive a clear plan, not guesswork.',
     cta: 'Book My Strategy Call',
   },
   {
@@ -20,37 +20,37 @@ const services = [
   {
     num: '03', tag: 'Tailor', icon: 'bi-sliders',
     title: 'Zoho Customization',
-    desc: 'Custom modules, fields, layouts, Deluge scripts, and approval flows — fitted to your business rules instead of templated defaults.',
+    desc: 'Custom modules, fields, layouts, Deluge scripts, and approval flows, fitted to your business rules instead of templated defaults.',
     cta: 'Customize My Zoho',
   },
   {
     num: '04', tag: 'Migrate', icon: 'bi-arrow-left-right',
     title: 'Data Migration',
-    desc: 'Moving from Salesforce, HubSpot, Pipedrive, Tally, or spreadsheets? We move your data cleanly — no duplicates, no missing fields, no broken history.',
+    desc: 'Moving from Salesforce, HubSpot, Pipedrive, Tally, or spreadsheets? We move your data cleanly, no duplicates, no missing fields, no broken history.',
     cta: 'Migrate My Data',
   },
   {
     num: '05', tag: 'Connect', icon: 'bi-plug',
     title: 'Third-Party Integrations',
-    desc: 'Integrate Zoho with QuickBooks, Shopify, WooCommerce, your phone system, your billing tool — anything with an API. We make the pieces talk to each other.',
+    desc: 'Integrate Zoho with QuickBooks, Shopify, WooCommerce, your phone system, your billing tool, anything with an API. We make the pieces talk to each other.',
     cta: 'Connect My Tools',
   },
   {
     num: '06', tag: 'Support', icon: 'bi-life-preserver',
     title: 'Ongoing Support & Training',
-    desc: 'Monthly support, quick response to tickets, and live training for your team. If it breaks, you call us — and we fix it. Documented every step.',
+    desc: 'Monthly support, quick response to tickets, and live training for your team. If it breaks, you call us, and we fix it. Documented every step.',
     cta: 'Get Ongoing Support',
   },
   {
     num: '07', tag: 'Automate', icon: 'bi-lightning-charge',
     title: 'Workflow Automation',
-    desc: 'We automate your repetitive tasks — follow-up emails, lead routing, deal stage triggers, approvals — so your team stops doing busy work.',
+    desc: 'We automate your repetitive tasks, follow-up emails, lead routing, deal stage triggers, approvals, so your team stops doing busy work.',
     cta: 'Automate My Workflows',
   },
   {
     num: '08', tag: 'Reports', icon: 'bi-graph-up-arrow',
     title: 'Custom Reports & Dashboards',
-    desc: 'The reports your boss actually wants to see. Pipeline by source. Revenue per rep. Sales velocity. Real numbers — not noise.',
+    desc: 'The reports your boss actually wants to see. Pipeline by source. Revenue per rep. Sales velocity. Real numbers, not noise.',
     cta: 'Build My Reports',
   },
 ]
@@ -116,7 +116,7 @@ function ServiceCard({ s, color, delay }) {
             <i className={`bi ${s.icon}`} />
           </div>
           <div style={{
-            fontFamily: 'Plus Jakarta Sans,sans-serif', fontSize: '0.88rem',
+            fontFamily: 'Inter,sans-serif', fontSize: '0.88rem',
             fontWeight: 800, color: '#cbd5e1', letterSpacing: 1.5,
           }}>{s.num}</div>
         </div>
@@ -130,7 +130,7 @@ function ServiceCard({ s, color, delay }) {
 
         <h3 style={{
           fontSize: '1.14rem', fontWeight: 800, marginBottom: 12,
-          color: '#0b1220', fontFamily: 'Plus Jakarta Sans,sans-serif', lineHeight: 1.3,
+          color: '#0b1220', fontFamily: 'Inter,sans-serif', lineHeight: 1.3,
           letterSpacing: '-0.012em',
         }}>{s.title}</h3>
 
@@ -139,10 +139,10 @@ function ServiceCard({ s, color, delay }) {
           marginBottom: 22, fontFamily: 'Inter,sans-serif',
         }}>{s.desc}</p>
 
-        <a href="#consultation" className="svc-cta" style={{
+        <a href="https://arul-zoflowx.zohobookings.in/#/Zoho_Consultation" target="_blank" rel="noreferrer" className="svc-cta" style={{
           display: 'inline-flex', alignItems: 'center', gap: 8,
           fontSize: '0.86rem', fontWeight: 700, color: '#0b1220',
-          textDecoration: 'none', fontFamily: 'Plus Jakarta Sans,sans-serif',
+          textDecoration: 'none', fontFamily: 'Inter,sans-serif',
           transition: 'all 0.28s',
         }}>
           {s.cta} <i className="bi bi-arrow-right" />
@@ -174,11 +174,11 @@ export default function Services() {
               Everything Zoho. <span className="grad-blue-red">One team.</span> One contract.
             </h2>
             <p className="section-sub">
-              ZoFlowX is a leading Zoho Consulting Partner that handles every Zoho need under one roof — from setup to maintenance. Pick what you need. Pay only for that.
+              ZoFlowX is a leading Zoho Consulting Partner who takes care of all your Zoho needs, from installation to maintenance. Pick what you need. Pay only for that.
             </p>
           </div>
           <div className="col-lg-4 text-lg-end mt-3 mt-lg-0 d-none d-lg-block">
-            <a href="#consultation" className="link-reveal">
+            <a href="https://arul-zoflowx.zohobookings.in/#/Zoho_Consultation" target="_blank" rel="noreferrer" className="link-reveal">
               Tell us what you need <i className="bi bi-arrow-right" />
             </a>
           </div>
@@ -192,46 +192,67 @@ export default function Services() {
 
         {/* CTA Banner */}
         <div className="fade-up" style={{
-          background: 'linear-gradient(135deg, #0b1220 0%, #1e3a8a 100%)',
-          borderRadius: 24, padding: '46px 40px', marginTop: 56,
-          position: 'relative', overflow: 'hidden',
-        }}>
-          <div aria-hidden style={{ position: 'absolute', inset: 0, opacity: 0.22 }} className="dot-grid-light" />
-          <div aria-hidden style={{
-            position: 'absolute', top: '-40%', right: '-10%', width: 420, height: 420,
-            background: 'radial-gradient(circle, rgba(220,38,38,0.30), transparent 65%)', filter: 'blur(40px)',
-          }} />
-          <div aria-hidden style={{
-            position: 'absolute', bottom: '-40%', left: '-10%', width: 380, height: 380,
-            background: 'radial-gradient(circle, rgba(245,158,11,0.22), transparent 65%)', filter: 'blur(40px)',
-          }} />
-          <div className="row align-items-center position-relative g-4">
-            <div className="col-lg-8">
-              <div style={{
-                fontSize: '0.72rem', fontWeight: 700, letterSpacing: '2.5px',
-                textTransform: 'uppercase', color: '#f59e0b', marginBottom: 12,
-              }}>One team. All the skills.</div>
-              <h3 style={{
-                color: '#fff', fontFamily: 'Plus Jakarta Sans,sans-serif',
-                fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', marginBottom: 8,
-                lineHeight: 1.2, letterSpacing: '-0.018em',
-              }}>
-                Consultant + developer + PM + support, all in one engagement.
-              </h3>
-              <p style={{
-                color: 'rgba(255,255,255,0.72)', fontSize: '0.96rem',
-                marginBottom: 0, fontFamily: 'Inter,sans-serif',
-              }}>
-                Need 10 hours this month and 40 next? That&apos;s fine. Our managed services scale with your real workload — no retainer waste.
-              </p>
-            </div>
-            <div className="col-lg-4 text-lg-end">
-              <a href="#consultation" className="btn-accent ahover">
-                Get a Custom Quote <i className="bi bi-arrow-right" />
-              </a>
-            </div>
-          </div>
-        </div>
+  background: 'linear-gradient(120deg, #0a0f1f 0%, #0f1f3d 48%, #16294d 100%)',
+  border: '1px solid rgba(255,255,255,0.06)',
+  borderRadius: 24, padding: '46px 40px', marginTop: 56,
+  position: 'relative', overflow: 'hidden', fontFamily: 'Inter,sans-serif',
+  boxShadow: '0 18px 48px rgba(11,18,32,0.28)',
+}}>
+  <div aria-hidden style={{ position: 'absolute', inset: 0, opacity: 0.22 }} className="dot-grid-light" />
+  <div aria-hidden style={{
+    position: 'absolute', top: '-40%', right: '-10%', width: 420, height: 420,
+    background: 'radial-gradient(circle, rgba(223,58,60,0.22), transparent 65%)', filter: 'blur(40px)',
+  }} />
+  <div aria-hidden style={{
+    position: 'absolute', bottom: '-40%', left: '-10%', width: 380, height: 380,
+    background: 'radial-gradient(circle, rgba(38,110,179,0.18), transparent 68%)', filter: 'blur(40px)',
+  }} />
+  <div className="row align-items-center position-relative g-4">
+    <div className="col-lg-8">
+      <div style={{
+        fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.16em',
+        textTransform: 'uppercase', color: '#F8B222', marginBottom: 12,
+      }}>One team. All the skills.</div>
+      <h3 style={{
+        color: '#fff', fontFamily: 'Inter,sans-serif',
+        fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontWeight: 600, marginBottom: 8,
+        lineHeight: 1.2, letterSpacing: '-0.018em',
+      }}>
+        Consultant + developer + PM + support, <span style={{ color: '#DF3A3C', fontWeight: 700 }}>all in one engagement.</span>
+      </h3>
+      <p style={{
+        color: 'rgba(255,255,255,0.72)', fontSize: '0.96rem',
+        marginBottom: 0, fontFamily: 'Inter,sans-serif',
+      }}>
+        Need 10 hours this month and 40 next? That&apos;s fine. Our managed services scale with your real workload, no retainer waste.
+      </p>
+    </div>
+    <div className="col-lg-4 text-lg-end">
+      <a href="https://arul-zoflowx.zohobookings.in/#/Zoho_Consultation"
+        target="_blank" rel="noreferrer"
+        style={{
+          display: 'inline-flex', alignItems: 'center', gap: 8,
+          padding: '13px 24px', borderRadius: 11,
+          background: 'linear-gradient(135deg, #DF3A3C 0%, #b71f21 100%)',
+          color: '#fff', fontFamily: 'Inter,sans-serif', fontSize: '0.92rem',
+          fontWeight: 600, textDecoration: 'none',
+          boxShadow: '0 10px 26px rgba(223,58,60,0.34)',
+          transition: 'all 0.3s cubic-bezier(.2,.7,.2,1)', whiteSpace: 'nowrap',
+        }}
+        onMouseEnter={e => {
+          e.currentTarget.style.transform = 'translateY(-2px)'
+          e.currentTarget.style.boxShadow = '0 14px 32px rgba(223,58,60,0.46)'
+        }}
+        onMouseLeave={e => {
+          e.currentTarget.style.transform = ''
+          e.currentTarget.style.boxShadow = '0 10px 26px rgba(223,58,60,0.34)'
+        }}
+      >
+        Get a Custom Quote <i className="bi bi-arrow-right" />
+      </a>
+    </div>
+  </div>
+</div>
       </div>
     </section>
   )
