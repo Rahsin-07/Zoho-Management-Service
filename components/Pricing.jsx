@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 // Section 09 — Pricing Made Simple
-// Three plans, billed monthly. Hours-based managed services model.
+// Three plans, billed monthly or annually. Hours-based managed-services model.
 
 const plans = [
   {
@@ -64,12 +64,8 @@ const plans = [
   },
 ]
 
-const addOns = [
-  { icon: 'bi-arrow-left-right', label: 'Data migration project', color: '#2563eb' },
-  { icon: 'bi-clipboard2-data',   label: 'One-time audit (2 weeks)', color: '#dc2626' },
-  { icon: 'bi-rocket-takeoff',     label: 'New module implementation', color: '#f59e0b' },
-  { icon: 'bi-mortarboard',        label: 'Team training workshops', color: '#2563eb' },
-]
+
+const BOOKING = 'https://arul-zoflowx.zohobookings.in/#/Zoho_Consultation'
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(true)
@@ -87,8 +83,8 @@ export default function Pricing() {
 
   return (
     <section id="pricing" style={{ background: '#fff', position: 'relative', overflow: 'hidden' }} ref={ref}>
-      <div aria-hidden style={{ position: 'absolute', top: '20%', left: '-8%', width: 380, height: 380, background: 'radial-gradient(circle, rgba(37,99,235,0.08), transparent 65%)', filter: 'blur(40px)' }} />
-      <div aria-hidden style={{ position: 'absolute', bottom: '10%', right: '-8%', width: 420, height: 420, background: 'radial-gradient(circle, rgba(245,158,11,0.08), transparent 65%)', filter: 'blur(40px)' }} />
+      <div aria-hidden style={{ position: 'absolute', top: '18%', left: '-8%', width: 380, height: 380, background: 'radial-gradient(circle, rgba(37,99,235,0.08), transparent 65%)', filter: 'blur(40px)' }} />
+      <div aria-hidden style={{ position: 'absolute', bottom: '8%', right: '-8%', width: 420, height: 420, background: 'radial-gradient(circle, rgba(245,158,11,0.08), transparent 65%)', filter: 'blur(40px)' }} />
 
       <div className="container position-relative">
         <div className="text-center mb-5 fade-up" style={{ maxWidth: 820, margin: '0 auto 50px' }}>
@@ -99,7 +95,7 @@ export default function Pricing() {
             How much does ZoFlowX <span className="grad-blue-red">actually cost?</span>
           </h2>
           <p className="section-sub mx-auto">
-            No hidden fees. No long lock-ins. Pick what fits — change it next month if you need to.
+            No hidden fees. No long lock-ins. Pick what fits, change it next month if you need to.
           </p>
 
           {/* Billing toggle */}
@@ -108,172 +104,206 @@ export default function Pricing() {
             background: '#f6f1ea', border: '1px solid #e8e3dc', borderRadius: 999,
             padding: 5, marginTop: 28,
           }}>
-            <button
-              onClick={() => setAnnual(false)}
-              style={{
-                background: !annual ? '#fff' : 'transparent',
-                color: !annual ? '#0b1220' : '#64748b',
-                border: 'none', borderRadius: 999,
-                padding: '8px 22px', fontSize: '0.85rem',
-                fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 700,
-                cursor: 'pointer', transition: 'all 0.3s',
-                boxShadow: !annual ? '0 4px 12px rgba(11,18,32,0.08)' : 'none',
-              }}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setAnnual(true)}
-              style={{
-                background: annual ? '#fff' : 'transparent',
-                color: annual ? '#0b1220' : '#64748b',
-                border: 'none', borderRadius: 999,
-                padding: '8px 22px', fontSize: '0.85rem',
-                fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 700,
-                cursor: 'pointer', transition: 'all 0.3s',
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                boxShadow: annual ? '0 4px 12px rgba(11,18,32,0.08)' : 'none',
-              }}
-            >
-              Annual
-              <span style={{
-                background: 'var(--grad-tri)', color: '#fff',
-                fontSize: '0.66rem', fontWeight: 800,
-                padding: '2px 7px', borderRadius: 50,
-                letterSpacing: 0.5,
-              }}>SAVE 12%</span>
-            </button>
+            {[{ k: false, label: 'Monthly' }, { k: true, label: 'Annual' }].map(opt => {
+              const active = annual === opt.k
+              return (
+                <button
+                  key={opt.label}
+                  onClick={() => setAnnual(opt.k)}
+                  style={{
+                    background: active ? '#fff' : 'transparent',
+                    color: active ? '#0b1220' : '#64748b',
+                    border: 'none', borderRadius: 999,
+                    padding: '8px 22px', fontSize: '0.85rem',
+                    fontFamily: 'Inter,sans-serif', fontWeight: 700,
+                    cursor: 'pointer', transition: 'all 0.3s',
+                    display: 'inline-flex', alignItems: 'center', gap: 8,
+                    boxShadow: active ? '0 4px 12px rgba(11,18,32,0.08)' : 'none',
+                  }}
+                >
+                  {opt.label}
+                  {opt.k && (
+                    <span style={{
+                      background: 'var(--grad-tri)', color: '#fff',
+                      fontSize: '0.66rem', fontWeight: 800,
+                      padding: '2px 7px', borderRadius: 50, letterSpacing: 0.5,
+                    }}>SAVE 12%</span>
+                  )}
+                </button>
+              )
+            })}
           </div>
         </div>
 
-        <div className="row g-4 align-items-stretch">
+        <div className="row g-4 align-items-stretch justify-content-center">
           {plans.map((p, i) => {
-            const isFeatured = p.featured
+            const dark = !!p.featured
+            const hours = annual ? p.hoursMonthlyOnAnnual : p.hoursMonthly
+            const bigPrice = annual ? p.annualPrice : p.monthlyPrice
+            const showStrike = annual && p.monthlyPrice !== 'Custom' && p.annualPrice !== p.monthlyPrice
+
+            // Theme tokens per card
+            const cardBg     = dark ? 'linear-gradient(165deg,#161d2e 0%,#0b1220 100%)' : '#fff'
+            const textMain   = dark ? '#ffffff' : '#0b1220'
+            const textSub    = dark ? '#9aa6bd' : '#64748b'
+            const textFeat   = dark ? '#cdd5e3' : '#334155'
+            const borderCol  = dark ? 'rgba(255,255,255,0.10)' : '#e8e3dc'
+            const dividerCol = dark ? 'rgba(255,255,255,0.10)' : '#f0ece6'
+            const labelMuted = dark ? '#7e8aa3' : '#94a3b8'
+            const pillBg     = `${p.color}${dark ? '26' : '14'}`
+            const checkBg    = `${p.color}${dark ? '2e' : '15'}`
+
             return (
               <div key={p.name} className="col-md-6 col-lg-4 fade-up" style={{ transitionDelay: `${i * 0.08}s` }}>
                 <div className="price-card" style={{
-                  background: '#fff',
-                  border: `${isFeatured ? '2px' : '1px'} solid ${isFeatured ? p.color : '#e8e3dc'}`,
+                  background: cardBg,
+                  border: `${dark ? '1px' : '1px'} solid ${borderCol}`,
                   borderRadius: 22,
-                  padding: '36px 30px 30px',
-                  height: '100%', position: 'relative',
-                  boxShadow: isFeatured ? `0 24px 60px ${p.color}1f` : '0 8px 24px rgba(11,18,32,0.04)',
+                  padding: dark ? '40px 32px 32px' : '36px 30px 30px',
+                  height: '100%', position: 'relative', overflow: 'hidden',
+                  boxShadow: dark ? '0 30px 70px rgba(11,18,32,0.28)' : '0 8px 24px rgba(11,18,32,0.04)',
                   transition: 'all 0.4s cubic-bezier(.2,.7,.2,1)',
                   display: 'flex', flexDirection: 'column',
-                  transform: isFeatured ? 'translateY(-8px)' : 'none',
+                  transform: dark ? 'translateY(-10px)' : 'none',
                 }}
                   onMouseEnter={e => {
                     const el = e.currentTarget
-                    el.style.transform = isFeatured ? 'translateY(-14px)' : 'translateY(-6px)'
-                    el.style.boxShadow = `0 32px 72px ${p.color}2e`
-                    el.style.borderColor = p.color
+                    el.style.transform = dark ? 'translateY(-16px)' : 'translateY(-6px)'
+                    el.style.boxShadow = dark ? '0 40px 90px rgba(11,18,32,0.36)' : `0 28px 64px ${p.color}22`
+                    el.style.borderColor = dark ? 'rgba(255,255,255,0.16)' : p.color
                   }}
                   onMouseLeave={e => {
                     const el = e.currentTarget
-                    el.style.transform = isFeatured ? 'translateY(-8px)' : 'none'
-                    el.style.boxShadow = isFeatured ? `0 24px 60px ${p.color}1f` : '0 8px 24px rgba(11,18,32,0.04)'
-                    el.style.borderColor = isFeatured ? p.color : '#e8e3dc'
+                    el.style.transform = dark ? 'translateY(-10px)' : 'none'
+                    el.style.boxShadow = dark ? '0 30px 70px rgba(11,18,32,0.28)' : '0 8px 24px rgba(11,18,32,0.04)'
+                    el.style.borderColor = borderCol
                   }}
                 >
-                  {isFeatured && (
+                  {/* top accent bar — tri-gradient for featured, plan color for others */}
+                  <div aria-hidden style={{
+                    position: 'absolute', top: 0, left: 0, right: 0, height: dark ? 4 : 3,
+                    background: dark ? 'var(--grad-tri)' : p.color,
+                    opacity: dark ? 1 : 0.85,
+                  }} />
+
+                  {/* soft glow behind featured card */}
+                  {dark && (
                     <div aria-hidden style={{
-                      position: 'absolute', top: -1, left: -1, right: -1, height: 4,
-                      borderRadius: '22px 22px 0 0',
-                      background: 'var(--grad-tri)',
+                      position: 'absolute', top: -60, right: -60, width: 240, height: 240,
+                      background: `radial-gradient(circle, ${p.color}33, transparent 65%)`,
+                      filter: 'blur(20px)', pointerEvents: 'none',
                     }} />
                   )}
-                  {isFeatured && (
+
+                  {dark && (
                     <div style={{
-                      position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)',
+                      position: 'absolute', top: 18, right: 18,
                       background: 'var(--grad-tri)', color: '#fff',
-                      fontSize: '0.7rem', fontWeight: 800, letterSpacing: 1.4,
-                      padding: '6px 14px', borderRadius: 50,
+                      fontSize: '0.66rem', fontWeight: 800, letterSpacing: 1.2,
+                      padding: '6px 12px', borderRadius: 50,
                       fontFamily: 'Inter,sans-serif', textTransform: 'uppercase',
-                      boxShadow: '0 8px 22px rgba(220,38,38,0.32)',
+                      boxShadow: '0 8px 22px rgba(220,38,38,0.4)',
                     }}>Most Popular</div>
                   )}
 
-                  <div style={{
-                    fontFamily: 'Inter,sans-serif', fontSize: '0.7rem',
-                    fontWeight: 800, letterSpacing: 1.8, color: p.color,
-                    textTransform: 'uppercase', marginBottom: 10,
-                  }}>{annual ? p.hoursMonthlyOnAnnual : p.hoursMonthly} / month</div>
+                  {/* hours pill */}
+                  <div style={{ position: 'relative' }}>
+                    <span style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 6,
+                      background: pillBg, color: p.color,
+                      fontSize: '0.68rem', fontWeight: 800, letterSpacing: 0.8,
+                      textTransform: 'uppercase', padding: '5px 12px', borderRadius: 999,
+                      fontFamily: 'Inter,sans-serif',
+                    }}>
+                      <i className="bi bi-clock-history" /> {hours} / month
+                    </span>
+                  </div>
 
                   <h3 style={{
-                    fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800,
-                    fontSize: '1.5rem', color: '#0b1220',
-                    marginBottom: 8, letterSpacing: '-0.018em',
+                    fontFamily: 'Inter,sans-serif', fontWeight: 800,
+                    fontSize: '1.5rem', color: textMain,
+                    margin: '18px 0 8px', letterSpacing: '-0.018em',
                   }}>{p.name}</h3>
 
                   <p style={{
-                    fontSize: '0.9rem', color: '#64748b', lineHeight: 1.6,
+                    fontSize: '0.9rem', color: textSub, lineHeight: 1.6,
                     fontFamily: 'Inter,sans-serif', marginBottom: 22, minHeight: 44,
                   }}>{p.tagline}</p>
 
                   <div style={{ marginBottom: 24 }}>
+                    {showStrike && (
+                      <div style={{
+                        fontSize: '0.95rem', color: textSub, opacity: 0.7,
+                        textDecoration: 'line-through', fontFamily: 'Inter,sans-serif',
+                        marginBottom: 2,
+                      }}>{p.monthlyPrice}</div>
+                    )}
                     <div style={{
-                      fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800,
-                      fontSize: '2.6rem', color: '#0b1220', lineHeight: 1,
+                      display: 'flex', alignItems: 'baseline', gap: 6,
+                      fontFamily: 'Inter,sans-serif', fontWeight: 800,
+                      fontSize: '2.6rem', color: textMain, lineHeight: 1,
                       letterSpacing: '-0.028em',
                     }}>
-                      {annual ? p.annualPrice : p.monthlyPrice}
+                      {bigPrice}
+                      {bigPrice !== 'Custom' && (
+                        <span style={{ fontSize: '0.95rem', fontWeight: 600, color: textSub }}>/mo</span>
+                      )}
                     </div>
                     <div style={{
-                      fontSize: '0.78rem', color: '#64748b',
+                      fontSize: '0.78rem', color: textSub,
                       fontFamily: 'Inter,sans-serif', marginTop: 6,
                     }}>
-                      {p.monthlyPrice === 'Custom' ? 'tailored to your scope' : `per month${annual ? ', billed annually' : ', billed monthly'}`}
+                      {bigPrice === 'Custom'
+                        ? 'tailored to your scope'
+                        : annual ? 'billed annually' : 'billed monthly'}
                     </div>
                   </div>
 
-                  <a href="#consultation"
+                  <a href={BOOKING} target="_blank" rel="noreferrer"
                     style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       gap: 8, width: '100%',
-                      background: isFeatured ? 'var(--grad-tri)' : '#fff',
-                      color: isFeatured ? '#fff' : p.color,
-                      border: isFeatured ? 'none' : `2px solid ${p.color}`,
+                      background: dark ? 'var(--grad-tri)' : '#fff',
+                      color: dark ? '#fff' : p.color,
+                      border: dark ? 'none' : `2px solid ${p.color}`,
                       borderRadius: 12, padding: '0.78rem 1.4rem',
-                      fontFamily: 'Plus Jakarta Sans,sans-serif',
-                      fontWeight: 700, fontSize: '0.92rem',
+                      fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: '0.92rem',
                       textDecoration: 'none', transition: 'all 0.3s',
                       marginBottom: 26,
-                      boxShadow: isFeatured ? '0 10px 26px rgba(220,38,38,0.32)' : 'none',
+                      boxShadow: dark ? '0 12px 28px rgba(220,38,38,0.36)' : 'none',
                     }}
                     onMouseEnter={e => {
-                      if (!isFeatured) {
-                        e.currentTarget.style.background = p.color
-                        e.currentTarget.style.color = '#fff'
-                      }
+                      if (!dark) { e.currentTarget.style.background = p.color; e.currentTarget.style.color = '#fff' }
                       e.currentTarget.style.transform = 'translateY(-2px)'
                     }}
                     onMouseLeave={e => {
-                      if (!isFeatured) {
-                        e.currentTarget.style.background = '#fff'
-                        e.currentTarget.style.color = p.color
-                      }
+                      if (!dark) { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = p.color }
                       e.currentTarget.style.transform = ''
                     }}
                   >
                     {p.cta} <i className="bi bi-arrow-right" />
                   </a>
 
-                  <div style={{ paddingTop: 24, borderTop: '1px solid #f0ece6', flex: 1 }}>
+                  <div style={{ paddingTop: 24, borderTop: `1px solid ${dividerCol}`, flex: 1 }}>
                     <div style={{
                       fontSize: '0.72rem', fontWeight: 700, letterSpacing: 1.5,
-                      textTransform: 'uppercase', color: '#94a3b8',
+                      textTransform: 'uppercase', color: labelMuted,
                       marginBottom: 16, fontFamily: 'Inter,sans-serif',
                     }}>What you get</div>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                       {p.features.map(f => (
                         <li key={f} style={{
                           display: 'flex', alignItems: 'flex-start', gap: 10,
-                          marginBottom: 10, fontSize: '0.88rem', color: '#334155',
-                          fontFamily: 'Inter,sans-serif', lineHeight: 1.55,
+                          marginBottom: 12, fontSize: '0.88rem', color: textFeat,
+                          fontFamily: 'Inter,sans-serif', lineHeight: 1.5,
                         }}>
-                          <i className="bi bi-check2" style={{
-                            color: p.color, fontSize: '1.05rem', marginTop: 1, flexShrink: 0, fontWeight: 800,
-                          }} />
+                          <span style={{
+                            width: 20, height: 20, borderRadius: 6, flexShrink: 0, marginTop: 1,
+                            background: checkBg, color: p.color,
+                            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                          }}>
+                            <i className="bi bi-check2" style={{ fontSize: '0.82rem', fontWeight: 800 }} />
+                          </span>
                           <span>{f}</span>
                         </li>
                       ))}
@@ -285,83 +315,7 @@ export default function Pricing() {
           })}
         </div>
 
-        {/* Add-ons strip */}
-        <div className="fade-up" style={{
-          marginTop: 60, padding: '32px 32px',
-          background: '#fafaf7', border: '1px solid #e8e3dc', borderRadius: 22,
-        }}>
-          <div className="row align-items-center g-4">
-            <div className="col-lg-4">
-              <div style={{
-                fontFamily: 'Inter,sans-serif', fontSize: '0.7rem',
-                fontWeight: 700, letterSpacing: 1.8,
-                color: '#64748b', textTransform: 'uppercase', marginBottom: 6,
-              }}>Project-based add-ons</div>
-              <div style={{
-                fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800,
-                fontSize: '1.18rem', color: '#0b1220', letterSpacing: '-0.012em',
-              }}>One-off work, scoped before we start</div>
-            </div>
-            <div className="col-lg-8">
-              <div className="row g-3">
-                {addOns.map(a => (
-                  <div key={a.label} className="col-md-6">
-                    <div style={{
-                      display: 'flex', alignItems: 'center', gap: 12,
-                      background: '#fff', border: '1px solid #e8e3dc', borderRadius: 14,
-                      padding: '12px 16px', transition: 'all 0.28s',
-                    }}
-                      onMouseEnter={e => {
-                        e.currentTarget.style.borderColor = a.color
-                        e.currentTarget.style.transform = 'translateY(-2px)'
-                        e.currentTarget.style.boxShadow = `0 10px 24px ${a.color}1f`
-                      }}
-                      onMouseLeave={e => {
-                        e.currentTarget.style.borderColor = '#e8e3dc'
-                        e.currentTarget.style.transform = ''
-                        e.currentTarget.style.boxShadow = 'none'
-                      }}
-                    >
-                      <div style={{
-                        width: 36, height: 36, borderRadius: 10,
-                        background: `${a.color}15`, color: a.color,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: '1rem', flexShrink: 0,
-                      }}>
-                        <i className={`bi ${a.icon}`} />
-                      </div>
-                      <div style={{
-                        fontFamily: 'Plus Jakarta Sans,sans-serif',
-                        fontWeight: 700, fontSize: '0.92rem', color: '#0b1220',
-                      }}>{a.label}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Trust line */}
-        <div className="fade-up" style={{
-          textAlign: 'center', marginTop: 32,
-          fontSize: '0.86rem', color: '#64748b',
-          fontFamily: 'Inter,sans-serif',
-          display: 'flex', justifyContent: 'center', alignItems: 'center',
-          gap: 18, flexWrap: 'wrap',
-        }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            <i className="bi bi-shield-check" style={{ color: '#10b981' }} /> No long lock-ins
-          </span>
-          <span style={{ width: 1, height: 14, background: '#e8e3dc' }} />
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            <i className="bi bi-arrow-repeat" style={{ color: '#2563eb' }} /> Change plan any month
-          </span>
-          <span style={{ width: 1, height: 14, background: '#e8e3dc' }} />
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            <i className="bi bi-receipt" style={{ color: '#f59e0b' }} /> Transparent time logs
-          </span>
-        </div>
+       
       </div>
     </section>
   )
