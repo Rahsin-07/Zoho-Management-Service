@@ -1,12 +1,12 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-// Section 05 — How We Work (4 steps from brief)
+// Section 05, How We Work (4 steps from brief)
 const steps = [
-  { num: '01', icon: 'bi-headset',         title: 'Discover', desc: 'A 30-minute call to listen. What\'s going well, what isn\'t, where you want to go. No pitch. No pressure.' },
-  { num: '02', icon: 'bi-clipboard2-data', title: 'Audit',    desc: 'We audit your current Zoho setup (or current tools) and hand you a written report of gaps, fixes and opportunities.' },
-  { num: '03', icon: 'bi-hammer',          title: 'Build',    desc: 'We set up, tailor and integrate Zoho the way it should be. Demos at every milestone — not just at the end.' },
-  { num: '04', icon: 'bi-activity',        title: 'Run',      desc: 'We stay on as your managed services team. Monthly check-ins, quick support, and ongoing improvement.' },
+  { num: '01', icon: 'bi-headset',         title: 'Discover', desc: '30 minutes call to listen. What is going well, what isn\'t, where you want to go. No pitch. No pressure.' },
+  { num: '02', icon: 'bi-clipboard2-data', title: 'Audit',    desc: 'We audit your current Zoho configuration (or your current tools) and provide you with a written report of gaps, fixes and opportunities.' },
+  { num: '03', icon: 'bi-hammer',          title: 'Build',    desc: 'We set up, tailor and integrate Zoho as it should be. Demos are provided at each milestone, not at the end.' },
+  { num: '04', icon: 'bi-activity',        title: 'Run',      desc: 'We stay on as your managed services team. Monthly check-ins, quick support and ongoing improvement.' },
 ]
 
 // Tri-color flow across 4 steps
@@ -54,21 +54,21 @@ export default function Process() {
             </span>
           </div>
           <h2 style={{
-            fontFamily: 'Plus Jakarta Sans,sans-serif',
+            fontFamily: 'Inter,sans-serif',
             fontSize: 'clamp(2rem, 4.3vw, 3.15rem)', fontWeight: 800,
             color: '#fff', marginBottom: 18, letterSpacing: '-0.024em', lineHeight: 1.08,
           }}>
-            Four steps. <span style={{
+           Business Growth <span style={{
               background: 'linear-gradient(95deg, #93c5fd, #fca5a5, #fcd34d)',
               WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-            }}>No surprises.</span>
+            }}>Stories with Zoho </span>
           </h2>
           <p style={{
             color: 'rgba(255,255,255,0.74)', fontSize: '1.04rem',
             maxWidth: 680, margin: '0 auto',
             fontFamily: 'Inter,sans-serif', lineHeight: 1.72,
           }}>
-            Every ZoFlowX engagement follows the same path — so you always know what&apos;s happening and what&apos;s next. No surprise scope, no surprise invoices.
+            Each ZoFlowX engagement is the same, making it easy to know what&apos;s going on and what&apos;s next.
           </p>
         </div>
 
@@ -97,11 +97,11 @@ export default function Process() {
                     <i className={`bi ${s.icon}`} />
                   </div>
                   <div style={{
-                    fontFamily: 'Plus Jakarta Sans,sans-serif', fontSize: '0.72rem',
+                    fontFamily: 'Inter,sans-serif', fontSize: '0.72rem',
                     fontWeight: 800, color: '#f59e0b', letterSpacing: 2.2, marginBottom: 6,
                   }}>STEP {s.num}</div>
                   <h3 style={{
-                    fontFamily: 'Plus Jakarta Sans,sans-serif', fontSize: '1.18rem',
+                    fontFamily: 'Inter,sans-serif', fontSize: '1.18rem',
                     fontWeight: 800, color: '#fff', marginBottom: 10, lineHeight: 1.3,
                   }}>{s.title}</h3>
                   <p style={{
@@ -140,11 +140,11 @@ export default function Process() {
                 </div>
                 <div style={{ paddingTop: 6 }}>
                   <div style={{
-                    fontFamily: 'Plus Jakarta Sans,sans-serif', fontSize: '0.7rem',
+                    fontFamily: 'Inter,sans-serif', fontSize: '0.7rem',
                     fontWeight: 800, color: '#f59e0b', letterSpacing: 2.2, marginBottom: 4,
                   }}>STEP {s.num}</div>
                   <h3 style={{
-                    fontFamily: 'Plus Jakarta Sans,sans-serif', fontSize: '1.1rem',
+                    fontFamily: 'Inter,sans-serif', fontSize: '1.1rem',
                     fontWeight: 800, color: '#fff', marginBottom: 6,
                   }}>{s.title}</h3>
                   <p style={{
@@ -162,9 +162,11 @@ export default function Process() {
             color: 'rgba(255,255,255,0.74)', fontFamily: 'Inter,sans-serif',
             fontSize: '0.95rem', marginBottom: 18,
           }}>Ready to take the first step? The Discover call is on us.</p>
-          <a href="#consultation" className="btn-accent ahover">
-            Start with a Free Call <i className="bi bi-arrow-right" />
-          </a>
+         <a href="https://arul-zoflowx.zohobookings.in/#/Zoho_Consultation" target="_blank" rel="noreferrer"
+  className="btn-accent ahover"
+  style={{ background: 'linear-gradient(135deg, #DF3A3C 0%, #b71f21 100%)',color:"white" }}>
+  Start with a Free Call
+</a>
         </div>
       </div>
     </section>
