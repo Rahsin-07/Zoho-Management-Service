@@ -20,28 +20,12 @@ const options = [
     icon: 'bi-telephone',
     color: '#dc2626',
     title: 'Talk to a senior consultant',
-    sub: 'Mon–Fri, 10am–7pm IST',
+    sub: 'Mon-Fri, 9am-11pm IST',
     href: 'tel:+918190009222',
   },
 ]
 
-const pillars = [
-  {
-    icon: 'bi-shield-check',
-    title: '100% free — no obligation',
-    desc: 'No credit card. No follow-up spam. No "sign up to see pricing".',
-  },
-  {
-    icon: 'bi-person-badge',
-    title: 'Senior consultant, not an SDR',
-    desc: 'You talk to someone who can actually fix things — from day one.',
-  },
-  {
-    icon: 'bi-journal-text',
-    title: 'Written summary, yours to keep',
-    desc: 'Even if you don\'t hire us, you walk away with a clear next-step doc.',
-  },
-]
+
 
 export default function Consultation() {
   const ref = useRef(null)
@@ -107,7 +91,7 @@ export default function Consultation() {
 
             <h2
               style={{
-                fontFamily: 'Plus Jakarta Sans,sans-serif',
+                fontFamily: 'Inter,sans-serif',
                 fontSize: 'clamp(2rem, 4.2vw, 3.1rem)',
                 fontWeight: 800,
                 color: '#fff',
@@ -143,135 +127,13 @@ export default function Consultation() {
               <strong style={{ color: '#fff' }}>No sales pitch. No commitment. Just clarity.</strong>
             </p>
 
-            {/* Three pillars */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36 }}>
-              {pillars.map((p, i) => (
-                <div
-                  key={p.title}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: 14,
-                    padding: '14px 18px',
-                    background: 'rgba(255,255,255,0.05)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: 14,
-                    backdropFilter: 'blur(6px)',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 38,
-                      height: 38,
-                      minWidth: 38,
-                      borderRadius: 10,
-                      background: ['rgba(37,99,235,0.18)', 'rgba(220,38,38,0.18)', 'rgba(245,158,11,0.2)'][i],
-                      color: ['#93c5fd', '#fca5a5', '#fcd34d'][i],
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '1.05rem',
-                      flexShrink: 0,
-                    }}
-                  >
-                    <i className={`bi ${p.icon}`} />
-                  </div>
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: 'Plus Jakarta Sans,sans-serif',
-                        fontWeight: 800,
-                        color: '#fff',
-                        fontSize: '0.94rem',
-                        marginBottom: 2,
-                      }}
-                    >
-                      {p.title}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: '0.82rem',
-                        color: 'rgba(255,255,255,0.65)',
-                        fontFamily: 'Inter,sans-serif',
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {p.desc}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+         
 
             {/* Founder card */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 16,
-                padding: '18px 22px',
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                borderRadius: 14,
-                backdropFilter: 'blur(8px)',
-              }}
-            >
-              <div
-                style={{
-                  width: 56,
-                  height: 56,
-                  borderRadius: '50%',
-                  background: 'var(--grad-tri)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: 'Plus Jakarta Sans,sans-serif',
-                  fontWeight: 800,
-                  color: '#fff',
-                  fontSize: '1.05rem',
-                  flexShrink: 0,
-                  boxShadow: '0 8px 26px rgba(220,38,38,0.4)',
-                }}
-              >
-                AR
-              </div>
-              <div>
-                <div
-                  style={{
-                    fontFamily: 'Plus Jakarta Sans,sans-serif',
-                    fontWeight: 800,
-                    color: '#fff',
-                    fontSize: '0.95rem',
-                  }}
-                >
-                  Arul Raj
-                </div>
-                <div
-                  style={{
-                    fontSize: '0.78rem',
-                    color: 'rgba(255,255,255,0.55)',
-                    marginTop: 2,
-                    fontFamily: 'Inter,sans-serif',
-                  }}
-                >
-                  Founder · 13+ years on Zoho · Ex-Oracle, Ex-Infosys
-                </div>
-                <div
-                  style={{
-                    fontSize: '0.82rem',
-                    color: 'rgba(255,255,255,0.7)',
-                    marginTop: 6,
-                    fontStyle: 'italic',
-                    fontFamily: 'Inter,sans-serif',
-                  }}
-                >
-                  "I personally take every first call. No SDRs, no scripts."
-                </div>
-              </div>
-            </div>
+           
           </div>
 
-          {/* RIGHT — Pick a way to start */}
+          {/* RIGHT, Pick a way to start */}
           <div className="col-lg-6 fade-up" style={{ transitionDelay: '0.15s' }}>
             <div
               style={{
@@ -324,7 +186,7 @@ export default function Consultation() {
               <div style={{ position: 'relative' }}>
                 <h3
                   style={{
-                    fontFamily: 'Plus Jakarta Sans,sans-serif',
+                    fontFamily: 'Inter,sans-serif',
                     fontSize: '1.55rem',
                     fontWeight: 800,
                     color: '#0b1220',
@@ -405,7 +267,7 @@ export default function Consultation() {
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div
                           style={{
-                            fontFamily: 'Plus Jakarta Sans,sans-serif',
+                            fontFamily: 'Inter,sans-serif',
                             fontWeight: 800,
                             fontSize: '0.94rem',
                             color: '#0b1220',
