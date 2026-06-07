@@ -1,37 +1,37 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-// Section 04 — Why ZoFlowX (6 reasons from brief)
+// Section 04, Why ZoFlowX (6 reasons from brief)
 const reasons = [
   {
     num: '01', icon: 'bi-patch-check-fill', color: '#2563eb',
     title: 'Zoho Authorized Partner',
-    desc: "We're an official Zoho Authorized Partner with certified consultants and developers on staff — not a freelancer pretending to be an agency.",
+    desc: "We're an official Zoho Authorized Partner with certified consultants and developers on staff. Not a freelancer pretending to be an agency.",
   },
   {
     num: '02', icon: 'bi-people-fill', color: '#dc2626',
     title: 'One team, all the skills',
-    desc: 'Consultant, developer, project manager and support engineer — all under one roof. No more chasing five different freelancers.',
+    desc: 'You get a consultant, a developer, a project manager, and a support engineer, all under one roof. No more chasing five different freelancers.',
   },
   {
     num: '03', icon: 'bi-graph-up', color: '#f59e0b',
     title: 'Pay only for what you use',
-    desc: 'Need 10 hours this month and 40 next? That works. Our managed services scale up or down with your actual workload — no retainer waste.',
+    desc: "Need 10 hours this month and 40 hours next month? That's fine. Our managed services grow and shrink as your actual workload grows and shrinks. No retainer waste.",
   },
   {
     num: '04', icon: 'bi-telephone-inbound', color: '#2563eb',
     title: 'We pick up the phone',
-    desc: 'Support tickets are answered by a human, fast. Most are resolved within 48 hours. Critical issues get same-day attention.',
+    desc: 'Your support tickets are answered by a human, and promptly. The majority are dealt with within 48 hours. Same day attention is given to critical issues.',
   },
   {
     num: '05', icon: 'bi-file-earmark-text', color: '#dc2626',
     title: 'We document everything',
-    desc: 'All workflows, custom fields, and integrations — documented in plain language. Even if you switch providers later, you stay un-locked-in.',
+    desc: "All workflows, all custom fields, all integrations, documented in everyday language. Even if you change providers later, you're not locked in.",
   },
   {
     num: '06', icon: 'bi-chat-square-text', color: '#f59e0b',
     title: 'We speak your language',
-    desc: 'No jargon. No condescending tech-speak. We explain what we&apos;re doing in a way that both your sales manager and your CFO understand.',
+    desc: 'No jargon. No condescending tech-speak. We tell your sales manager and your CFO what we&apos;re doing.',
   },
 ]
 
@@ -68,11 +68,8 @@ export default function WhyUs() {
             <span className="section-label section-label-blue">Why ZoFlowX</span>
           </div>
           <h2 className="section-title">
-            We&apos;re not the easiest choice. <span className="grad-red-yellow">We&apos;re the right one.</span>
+            We&apos;re not the easiest choice. <span className="grad-blue-red">We&apos;re the right one.</span>
           </h2>
-          <p className="section-sub mx-auto">
-            Six reasons clients keep us on the books — and refer their friends.
-          </p>
         </div>
 
         <div className="row g-4">
@@ -113,7 +110,7 @@ export default function WhyUs() {
                   transition: 'opacity 0.4s',
                 }} />
                 <div className="why-corner" aria-hidden style={{
-                  position: 'absolute', top: 16, right: 16, fontFamily: 'Plus Jakarta Sans,sans-serif',
+                  position: 'absolute', top: 16, right: 16, fontFamily: 'Inter,sans-serif',
                   fontSize: '0.7rem', fontWeight: 800, letterSpacing: 1.8,
                   color: r.color, opacity: 0, transition: 'opacity 0.36s',
                 }}>{r.num}</div>
@@ -131,7 +128,7 @@ export default function WhyUs() {
                 <h3 style={{
                   fontSize: '1.16rem', fontWeight: 800,
                   marginBottom: 10, color: '#0b1220',
-                  fontFamily: 'Plus Jakarta Sans,sans-serif', lineHeight: 1.3,
+                  fontFamily: 'Inter,sans-serif', lineHeight: 1.3,
                   letterSpacing: '-0.012em', position: 'relative', zIndex: 1,
                 }}>{r.title}</h3>
 
@@ -151,11 +148,13 @@ export default function WhyUs() {
             fontSize: '0.98rem', color: '#475569',
             fontFamily: 'Inter,sans-serif', marginBottom: 18,
           }}>
-            Want to see what working with a real Zoho Implementation Partner feels like?
+            Want to see what working with a real Zoho Implementation Partner feels like? Let&apos;s talk for 30 minutes, no sales pitch.
           </p>
-          <a href="#consultation" className="btn-primary-custom ahover">
-            Schedule My 30-Min Call <i className="bi bi-arrow-right" />
-          </a>
+        <a href="https://arul-zoflowx.zohobookings.in/#/Zoho_Consultation" target="_blank" rel="noreferrer"
+  className="btn-primary-custom ahover"
+  style={{ background: 'linear-gradient(135deg, #DF3A3C 0%, #b71f21 100%)' }}>
+  Schedule My Call
+</a>
         </div>
       </div>
     </section>
