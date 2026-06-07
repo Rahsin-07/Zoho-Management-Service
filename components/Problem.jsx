@@ -1,35 +1,35 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-// Section 02 — The Real Problem
+// Section 02, The Real Problem
 const problems = [
   {
     num: '01',
     icon: 'bi-clock-history',
     color: '#2563eb',
     title: 'Your Zoho was set up once and never touched again',
-    desc: 'Half of the modules are not utilized. Emails are sent to people who left two years ago through workflows. No one knows what the custom fields are for. Sound familiar?',
+    desc: 'Half of the modules are not utilized. Emails are sent to individuals who left two years ago through workflows. No one knows what the custom fields are used for. Sound familiar?',
   },
   {
     num: '02',
     icon: 'bi-cash-stack',
     color: '#dc2626',
     title: "You can't justify hiring a full-time Zoho admin",
-    desc: "A senior Zoho developer is expensive. They're not required 40 hours a week — but they are required when things go wrong at month-end.",
+    desc: "A senior Zoho developer is a big money spender. They're not required 40 hours a week, but they are required when things go wrong at the end of the month.",
   },
   {
     num: '03',
     icon: 'bi-bar-chart-line',
     color: '#f59e0b',
     title: "Your reports don't tell you anything useful",
-    desc: 'You wanted dashboards that show pipeline, revenue and deal status. You ended up with a list of leads in alphabetical order. Not helpful.',
+    desc: 'You wanted dashboards that would give you pipeline, revenue and deal status. You ended up with a list of leads in alphabetical order. Not helpful',
   },
   {
     num: '04',
     icon: 'bi-person-x',
     color: '#0b1220',
     title: 'Your last Zoho consultant disappeared',
-    desc: "They built things you don't understand, left no documentation, and stopped replying to emails. You now have a system no one can maintain.",
+    desc: "They created things you don't comprehend, didn't leave any documentation, and ceased responding to e-mails. You now have a system that no one can keep up.",
   },
 ]
 
@@ -57,9 +57,6 @@ export default function Problem() {
           <h2 className="section-title">
             Zoho is powerful. <span className="grad-blue-red">But only when someone</span> actually sets it up right
           </h2>
-          <p className="section-sub mx-auto">
-            We&apos;ve seen the same four patterns in nearly every new ZoFlowX client. Recognize any of them?
-          </p>
         </div>
 
         <div className="row g-4">
@@ -121,7 +118,7 @@ export default function Problem() {
                     <i className={`bi ${p.icon}`} />
                   </div>
                   <div className="prob-num" style={{
-                    fontFamily: 'Plus Jakarta Sans,sans-serif',
+                    fontFamily: 'Inter,sans-serif',
                     fontSize: '1.6rem', fontWeight: 800,
                     color: '#cbd5e1', letterSpacing: 1.5,
                     transition: 'color 0.3s',
@@ -130,7 +127,7 @@ export default function Problem() {
 
                 <h3 style={{
                   fontSize: '1.18rem', fontWeight: 800, marginBottom: 12,
-                  color: '#0b1220', fontFamily: 'Plus Jakarta Sans,sans-serif',
+                  color: '#0b1220', fontFamily: 'Inter,sans-serif',
                   lineHeight: 1.32, letterSpacing: '-0.012em',
                 }}>{p.title}</h3>
 
@@ -143,22 +140,75 @@ export default function Problem() {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="fade-up text-center" style={{ marginTop: 60 }}>
+        {/* CTA — One Partner band (compact) */}
+        <div className="fade-up" style={{ marginTop: 56 }}>
           <div style={{
-            display: 'inline-flex', flexDirection: 'column', alignItems: 'center',
-            padding: '32px 36px', background: '#f6f1ea',
-            border: '1px solid #e8e3dc', borderRadius: 20, gap: 14, maxWidth: 620,
+            position: 'relative', overflow: 'hidden', borderRadius: 20,
+            padding: 'clamp(42px, 6vw, 52px)',
+            background: 'linear-gradient(120deg, #0a0f1f 0%, #0f1f3d 48%, #16294d 100%)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            boxShadow: '0 18px 48px rgba(11,18,32,0.28)',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            gap: 28, flexWrap: 'wrap', fontFamily: 'Inter,sans-serif',
           }}>
-            <div style={{
-              fontSize: '0.96rem', color: '#334155',
-              fontFamily: 'Inter,sans-serif', lineHeight: 1.7,
-            }}>
-              Sounds like your situation? Let&apos;s fix it. Book a free 30-minute audit and we&apos;ll show you <strong style={{ color: '#0b1220' }}>exactly what&apos;s broken and how to fix it</strong>.
+            {/* glows */}
+            <div aria-hidden style={{
+              position: 'absolute', top: -90, right: -60, width: 300, height: 300, borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(223,58,60,0.18), transparent 65%)',
+              filter: 'blur(8px)', pointerEvents: 'none',
+            }} />
+            <div aria-hidden style={{
+              position: 'absolute', bottom: -100, left: -50, width: 280, height: 280, borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(38,110,179,0.16), transparent 68%)',
+              filter: 'blur(8px)', pointerEvents: 'none',
+            }} />
+            {/* dotted texture */}
+            <div aria-hidden style={{
+              position: 'absolute', inset: 0,
+              backgroundImage: 'radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)',
+              backgroundSize: '20px 20px', opacity: 0.5, pointerEvents: 'none',
+            }} />
+
+            <div style={{ position: 'relative', flex: '1 1 460px', minWidth: 0 }}>
+              <span style={{
+                display: 'inline-block', fontFamily: 'Inter,sans-serif',
+                fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.16em',
+                textTransform: 'uppercase', color: '#F8B222', marginBottom: 10,
+              }}>One partner. Every Zoho service.</span>
+
+              <h2 style={{
+                fontFamily: 'Inter,sans-serif', fontSize: 'clamp(1.15rem, 1.9vw, 1.6rem)',
+                fontWeight: 600, lineHeight: 1.32, letterSpacing: '-0.01em', color: '#fff', margin: 0,
+              }}>
+                Zoho works best when it&apos;s set up right. We make sure your business is never on the{' '}
+                <span style={{ color: '#DF3A3C', fontWeight: 700 }}>wrong side of that gap.</span>
+              </h2>
             </div>
-            <a href="#consultation" className="btn-gradient ahover">
-              Book My Free Audit <i className="bi bi-arrow-right" />
-            </a>
+
+            <div style={{ position: 'relative', flex: '0 0 auto' }}>
+              <a href="https://arul-zoflowx.zohobookings.in/#/Zoho_Consultation"
+                target="_blank" rel="noreferrer"
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  padding: '12px 22px', borderRadius: 11,
+                  background: 'linear-gradient(135deg, #DF3A3C 0%, #b71f21 100%)',
+                  color: '#fff', fontFamily: 'Inter,sans-serif', fontSize: '0.9rem',
+                  fontWeight: 600, textDecoration: 'none',
+                  boxShadow: '0 10px 26px rgba(223,58,60,0.34)',
+                  transition: 'all 0.3s cubic-bezier(.2,.7,.2,1)', whiteSpace: 'nowrap',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                  e.currentTarget.style.boxShadow = '0 14px 32px rgba(223,58,60,0.46)'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = ''
+                  e.currentTarget.style.boxShadow = '0 10px 26px rgba(223,58,60,0.34)'
+                }}
+              >
+                Hire Certified Zoho Experts <i className="bi bi-arrow-right" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
