@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-// Section 10 — From the Journal
+// Section 10, From the Journal
 const articles = [
   {
     color: '#2563eb',
@@ -18,7 +18,7 @@ const articles = [
     readTime: '11 min read',
     title: '5 Deluge patterns that quietly fail at scale (and our fixes)',
     excerpt:
-      "Throttling, retry logic, idempotent updates, partial saves, and audit logging — the stuff most freelance scripts skip.",
+      "Throttling, retry logic, idempotent updates, partial saves, and audit logging, the stuff most freelance scripts skip.",
     icon: 'bi-code-slash',
   },
   {
@@ -27,7 +27,7 @@ const articles = [
     readTime: '14 min read',
     title: 'Tally to Zoho Books: a checklist from 1,500+ records of pain',
     excerpt:
-      "PIN codes, MobilePhone formats, custom numbering schemes, GST templates — what we learned shipping the Image Star migration.",
+      "PIN codes, MobilePhone formats, custom numbering schemes, GST templates, what we learned shipping the Image Star migration.",
     icon: 'bi-arrow-left-right',
   },
 ]
@@ -53,9 +53,6 @@ export default function Resources() {
             <h2 className="section-title">
               Stuff we&apos;ve written that <span className="grad-blue-yellow">might help before you even hire us</span>
             </h2>
-            <p className="section-sub">
-              Real lessons from real projects — no SEO fluff, no chatbot ghost-writing.
-            </p>
           </div>
           <div className="col-lg-4 text-lg-end mt-3 mt-lg-0 d-none d-lg-block">
             <a href="#" className="link-reveal">
@@ -138,7 +135,7 @@ export default function Resources() {
 
                     <h3 className="art-title" style={{
                       fontSize: '1.1rem', fontWeight: 800,
-                      color: '#0b1220', fontFamily: 'Plus Jakarta Sans,sans-serif',
+                      color: '#0b1220', fontFamily: 'Inter,sans-serif',
                       lineHeight: 1.32, marginBottom: 10, letterSpacing: '-0.012em',
                       transition: 'color 0.3s', flex: 1,
                     }}>{a.title}</h3>
@@ -154,7 +151,7 @@ export default function Resources() {
                     }}>
                       <span style={{
                         fontSize: '0.82rem', fontWeight: 700, color: '#64748b',
-                        fontFamily: 'Plus Jakarta Sans,sans-serif',
+                        fontFamily: 'Inter,sans-serif',
                       }}>Read article</span>
                       <span className="art-arrow" style={{
                         width: 32, height: 32, borderRadius: 10,
